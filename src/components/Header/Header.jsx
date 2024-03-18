@@ -2,7 +2,7 @@ import { Container, Logo, Logout } from '../index';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { v4 as uuid } from 'uuid';
+// import { v4 as uuid } from 'uuid';
 import { useState } from 'react';
 
 function Header() {
@@ -12,31 +12,31 @@ function Header() {
 
     const navItems = [
         {
-            id: uuid(),
+            id: 1,
             name: 'Home',
             slug: '/',
             active: true
         },
         {
-            id: uuid(),
+            id: 2,
             name: 'Login',
             slug: '/login',
             active: !authStatus
         },
         {
-            id: uuid(),
+            id: 3,
             name: 'Signup',
             slug: '/signup',
             active: !authStatus
         },
         {
-            id: uuid(),
+            id: 4,
             name: 'All Posts',
             slug: '/all-posts',
             active: authStatus
         },
         {
-            id: uuid(),
+            id: 5,
             name: 'Add Post',
             slug: '/add-post',
             active: authStatus
