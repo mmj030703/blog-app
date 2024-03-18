@@ -12,6 +12,13 @@ import Signup from "./Signup";
 import AuthLayout from "./AuthLayout";
 import RTE from "./RTE";
 import PostForm from "./post-form/PostForm";
+import SignupPage from "../pages/Signup";
+import LoginPage from "../pages/Login";
+import AddPostPage from "../pages/AddPost";
+import AllPostsPage from "../pages/AllPosts";
+import EditPostPage from "../pages/EditPost";
+import HomePage from "../pages/Home";
+import PostPage from "../pages/Post";
 
 export {
     Header,
@@ -27,5 +34,12 @@ export {
     Signup,
     AuthLayout,
     RTE,
-    PostForm
+    PostForm,
+    SignupPage,
+    LoginPage,
+    AddPostPage,
+    AllPostsPage,
+    EditPostPage,
+    HomePage,
+    PostPage
 }

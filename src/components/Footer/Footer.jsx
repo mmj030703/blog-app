@@ -3,12 +3,12 @@ import { Logo } from "../index";
 function Footer() {
     return (
         <footer className="flex">
-            <div className="flex flex-wrap w-full px-5 py-5">
-                <div className="w-[40%] flex flex-col justify-between items-center">
+            <div className="flex flex-wrap gap-x-20 md:flex-row md:justify-center md:items-stretch gap-y-10 flex-col items-center w-full sm:px-5 sm:pt-5">
+                <div className=" flex flex-col justify-between items-center gap-y-4">
                     <Logo />
-                    <p className="content-center font-semibold text-[15px] text-slate-700">© Copyright 2023. All Rights Reserved by Mayank M Jain.</p>
+                    <p className="content-center font-semibold md:w-auto md:m-w-0 sm:min-w-[300px] min-w-0 text-[15px] text-slate-700">© Copyright 2023. All Rights Reserved by Mayank M Jain.</p>
                 </div>
-                <div className="flex flex-wrap justify-center gap-x-28 w-[60%]">
+                <div className="flex flex-wrap gap-y-5 justify-center gap-x-28">
                     <nav>
                         <h3 className="font-bold text-[17px]">COMPANY</h3>
                         <ul className="flex flex-col gap-y-1 font-semibold mt-2">

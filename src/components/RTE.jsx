@@ -1,8 +1,9 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
-import Editor from '@tinymce/tinymce-react';
+import { Editor } from '@tinymce/tinymce-react';
 import { Controller } from 'react-hook-form';
 
-export default function RTE({ name, control, label, defaultValue = "" }) {
+function RTE({ name, control, label, defaultValue = "" }) {
     return (
         <div className='w-full'>
             {label && <label className="inline-block mb-1 pl-1">{label}</label>}
@@ -12,6 +13,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
                 render={({ field: { onChange } }) => (
                     <Editor
                         initialValue={defaultValue}
+                        apiKey='weelo0g270s6xflfaq1nu2g0q7bgfcthuo7cewurz6i529ht'
                         init={{
                             intitialValue: defaultValue,
                             height: 500,
@@ -49,3 +51,5 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         </div>
     )
 }
+
+export default RTE;

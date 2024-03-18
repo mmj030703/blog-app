@@ -2,17 +2,19 @@
 import { Button, Input, RTE, Select } from '../index';
 import appwriteService from '../../appwrite/database';
 import { useNavigate } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux';
+import AddPostShimmer from '../shimmer/AddPostShimmer';
 
 export default function PostForm({ post }) {
+    const [showShimmer, setShowShimmer] = useState(true);
     const navigate = useNavigate();
     const userData = useSelector(state => state.auth.userData);
     const { register, handleSubmit, control, setValue, getValues, watch } = useForm({
         defaultValues: {
             title: post?.title || '',
-            slug: post?.slug || '',
+            slug: post?.$id || '',
             content: post?.content || '',
             status: post?.status || 'active',
 
@@ -20,6 +22,7 @@ export default function PostForm({ post }) {
     });
 
     const submit = async (data) => {
+        console.log(data);
         // Update the Post
         if (post) {
             // Uploading the file(image) to DB
@@ -60,7 +63,7 @@ export default function PostForm({ post }) {
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/[^a-zA-Z\d\s]+/g, "-")
+                .replace(/[^a-zA-Z\d\s']+/g, "-")
                 .replace(/\s/g, '-');
         }
 
@@ -73,13 +76,18 @@ export default function PostForm({ post }) {
                 setValue("slug", slugTransform(value.title), { shouldValidate: true });
             }
         });
+        setShowShimmer(false);
 
         return () => subscription.unsubscribe();
     }, [watch, slugTransform, setValue]);
 
+    if (showShimmer) {
+        return <AddPostShimmer />
+    }
+
     return (
-        <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-            <div className="w-2/3 px-2">
+        <form onSubmit={handleSubmit(submit)} className="flex sm:flex-row flex-col sm:items-start items-center flex-wrap">
+            <div className="w-full sm:w-2/3 px-2">
                 <Input
                     label="Title: "
                     placeholder="Title"
@@ -99,7 +107,7 @@ export default function PostForm({ post }) {
                 />
                 <RTE label="Content: " name="content" control={control} defaultValue={getValues("content")} />
             </div>
-            <div className='w-1/3 px-2'>
+            <div className='w-full sm:w-1/3 px-2'>
                 <Input
                     label='Featured Image: '
                     type='file'
