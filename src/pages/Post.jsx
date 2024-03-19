@@ -5,12 +5,13 @@ import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import { Button, Container } from "../components";
 import PostShimmer from '../components/shimmer/PostShimmer';
+import sampleBlogImage from '../assets/blog_image.jpg';
 
 function PostPage() {
   const [post, setPost] = useState(null);
   const { slug } = useParams();
   const navigate = useNavigate();
-  const userData = useSelector(state => state.auth.userData);
+  const { status: authStatus, userData } = useSelector((state) => state.auth);
   const isAuthor = post && userData ? userData.$id === post.userId : false;
 
   useEffect(() => {
@@ -53,7 +54,7 @@ function PostPage() {
       <Container>
         <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
           <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
+            src={authStatus ? appwriteService.getFilePreview(post.featuredImage) : sampleBlogImage}
             alt={post.title}
             className='rounded-xl'
           />
