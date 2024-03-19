@@ -3,7 +3,7 @@ import ShimmerItem from "./ShimmerItem";
 function PostsShimmer() {
     let shimmerItems = [];
     for (let i = 1; i < 9; i++) {
-        shimmerItems.push(<ShimmerItem className={'w-auto h-[170px]'} />);
+        shimmerItems.push(<ShimmerItem key={i} className={'w-auto h-[170px]'} />);
     }
 
     return (
