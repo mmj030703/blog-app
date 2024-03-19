@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import appwriteService from '../appwrite/database';
 import { useSelector } from 'react-redux';
-import sampleBlogImage from '../assets/blog_image.jpg';
+import sampleBlogImage from '../assets/blog_image.webp';
 
 function PostCard({ $id, title, featuredImage }) {
     const { status: authStatus } = useSelector((state) => state.auth);

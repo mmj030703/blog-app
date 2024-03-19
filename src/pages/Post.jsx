@@ -5,7 +5,7 @@ import parse from "html-react-parser";
 import { useSelector } from "react-redux";
 import { Button, Container } from "../components";
 import PostShimmer from '../components/shimmer/PostShimmer';
-import sampleBlogImage from '../assets/blog_image.jpg';
+import sampleBlogImage from '../assets/blog_image.webp';
 
 function PostPage() {
   const [post, setPost] = useState(null);
